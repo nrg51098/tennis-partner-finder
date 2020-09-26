@@ -1,0 +1,49 @@
+{
+    "court1": { 
+      "name": "court1",
+      "zipcode": "11111",
+      "available": true        
+    },
+    "court2": { 
+      "name": "court2",
+      "zipcode": "22222",
+      "available": true        
+    },
+    "court3": { 
+      "name": "court3",
+      "zipcode": "33333",
+      "available": true        
+    },
+    "court4": { 
+      "name": "court4",
+      "zipcode": "44444",
+      "available": true        
+    },
+    "court5": { 
+      "name": "court5",
+      "zipcode": "55555",
+      "available": true        
+    },
+    "court6": { 
+      "name": "court6",
+      "zipcode": "66666",
+      "available": true        
+    },
+    "court7": { 
+      "name": "court7",
+      "zipcode": "77777",
+      "available": true        
+    },
+    "court8": { 
+      "name": "court8",
+      "zipcode": "88888",
+      "available": true        
+    },
+    "court9": { 
+      "name": "court9",
+      "zipcode": "99999",
+      "available": true        
+    }
+  }
+      
+    

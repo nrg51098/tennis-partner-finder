@@ -1,0 +1,44 @@
+{
+    "game1": {
+      "player1Id": "player1",
+      "player2Id": "player2",
+      "courtId": "court1",
+      "singles": true
+    },
+    "game2": {
+      "player1Id": "player2",
+      "player2Id": "player3",
+      "courtId": "court2",
+      "singles": true
+    },
+    "game3": {
+      "player1Id": "player3",
+      "player2Id": "player1",
+      "courtId": "court3",
+      "singles": true
+    },
+    "game4": {
+      "player1Id": "player1",
+      "player2Id": "player2",
+      "player3Id": "player3",
+      "player4Id": "player4",
+      "courtId": "court1",
+      "singles": false
+    },
+    "game5": {
+      "player1Id": "player2",
+      "player2Id": "player3",
+      "player3Id": "player4",
+      "player4Id": "player5",
+      "courtId": "court2",
+      "singles": false
+    },
+    "game6": {
+      "player1Id": "player3",
+      "player2Id": "player4",
+      "player3Id": "player5",
+      "player4Id": "player6",
+      "courtId": "court3",
+      "singles": false
+    }
+  }

@@ -1,0 +1,12 @@
+{
+    "firebaseConfig": {
+      "apiKey": "AIzaSyB2y480taMO5vdP4SamiWHB8Ht1DnoD3ng",
+      "authDomain": "tennis-partner-finder.firebaseapp.com",
+      "databaseURL": "https://tennis-partner-finder.firebaseio.com",
+      "projectId": "tennis-partner-finder",
+      "storageBucket": "tennis-partner-finder.appspot.com",
+      "messagingSenderId": "231133358880",
+      "appId": "1:231133358880:web:b499c4c8c27131678ec545"
+    }
+  }
+ 
