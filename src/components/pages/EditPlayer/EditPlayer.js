@@ -10,6 +10,7 @@ class EditPlayer extends React.Component {
       zipcode: '',
       homeCourt: '',
       timeAvailable: '',
+      dayAvailable: '',
     },
   }
 
@@ -22,38 +23,45 @@ class EditPlayer extends React.Component {
       .catch((err) => console.error('err in get single player', err));
   }
 
-  changeTypeEvent = (e) => {
+  changeNameEvent = (e) => {
     e.preventDefault();
     const { player } = this.state;
     player.name = e.target.value;
     this.setState({ player });
   }
 
-  changeColorEvent = (e) => {
+  changeLevelEvent = (e) => {
     e.preventDefault();
     const { player } = this.state;
     player.level = e.target.value;
     this.setState({ player });
   }
 
-  changeSizeEvent = (e) => {
+  changeZipcodeEvent = (e) => {
     e.preventDefault();
     const { player } = this.state;
     player.zipcode = e.target.value;
     this.setState({ player });
   }
 
-  changeAltColor = (e) => {
+  changeHomeCourtEvent = (e) => {
     e.preventDefault();
     const { player } = this.state;
     player.homeCourt = e.target.value;
     this.setState({ player });
   }
 
-  changeLocation = (e) => {
+  changeTimeAvailableEvent = (e) => {
     e.preventDefault();
     const { player } = this.state;
     player.timeAvailable = e.target.value;
+    this.setState({ player });
+  }
+
+  changeDayAvailableEvent = (e) => {
+    e.preventDefault();
+    const { player } = this.state;
+    player.dayAvailable = e.target.value;
     this.setState({ player });
   }
 
@@ -76,6 +84,7 @@ class EditPlayer extends React.Component {
       zipcode,
       homeCourt,
       timeAvailable,
+      dayAvailable,
     } = this.state.player;
 
     return (
@@ -90,7 +99,7 @@ class EditPlayer extends React.Component {
               id="playerType"
               placeholder="Enter player name"
               value={name}
-              onChange={this.changeTypeEvent}
+              onChange={this.changeNameEvent}
             />
           </div>
           <div className="form-group">
@@ -101,7 +110,7 @@ class EditPlayer extends React.Component {
               id="playerColor"
               placeholder="Enter player level"
               value={level}
-              onChange={this.changeColorEvent}
+              onChange={this.changeLevelEvent}
             />
           </div>
           <div className="form-group">
@@ -112,7 +121,7 @@ class EditPlayer extends React.Component {
               id="playerSize"
               placeholder="Enter player zipcode"
               value={zipcode}
-              onChange={this.changeSizeEvent}
+              onChange={this.changeZipcodeEvent}
             />
           </div>
           <div className="form-group">
@@ -123,7 +132,7 @@ class EditPlayer extends React.Component {
               id="playerAltColor"
               placeholder="Enter player home court"
               value={homeCourt}
-              onChange={this.changeAltColor}
+              onChange={this.changeHomeCourtEvent}
             />
           </div>
           <div className="form-group">
@@ -134,7 +143,18 @@ class EditPlayer extends React.Component {
               id="playerLocation"
               placeholder="Enter player time available"
               value={timeAvailable}
-              onChange={this.changeLocation}
+              onChange={this.changeTimeAvailableEvent}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="playerLocation">Day Available</label>
+            <input
+              type="text"
+              className="form-control"
+              id="playerLocation"
+              placeholder="Enter player day available"
+              value={dayAvailable}
+              onChange={this.changeDayAvailableEvent}
             />
           </div>
           <button className="btn btn-info" onClick={this.updatePlayer}>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import apiKeys from '../apiKeys.json';
+import utils from '../utils';
 
 const baseUrl = apiKeys.firebaseConfig.databaseURL;
 
@@ -8,6 +9,7 @@ const getPlayerByUid = (uid) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/player.json?orderBy="uid"&equalTo="${uid}"`)
     .then((response) => {
       const allPlayers = response.data;
+      console.warn(response.data.uid);
       const myPlayers = [];
 
       if (allPlayers) {
@@ -20,6 +22,12 @@ const getPlayerByUid = (uid) => new Promise((resolve, reject) => {
 
       resolve(myPlayers);
     })
+    .catch((err) => reject(err));
+});
+
+const getAllPlayers = () => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/player.json`)
+    .then(({ data }) => resolve(utils.convertFirebaseCollection(data)))
     .catch((err) => reject(err));
 });
 
@@ -37,4 +45,5 @@ export default {
   createPlayer,
   deletePlayer,
   updatePlayer,
+  getAllPlayers,
 };

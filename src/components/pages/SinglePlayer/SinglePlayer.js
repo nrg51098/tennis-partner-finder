@@ -26,7 +26,8 @@ const SinglePlayer = (props) => {
       <p>Player Skill Level: {player.level}</p>
       <p>Player Zipcode: {player.zipcode}</p>
       <p>Player Home Court is: {player.homeCourt}</p>
-      <p>Player is available: {player.timeAvailable}</p>
+      <p>Player is available on Day: {player.dayAvailable}</p>
+      <p>at Time: {player.timeAvailable}</p>
       <button className="btn btn-danger col-12" onClick={deletePlayer}><i className="fas fa-trash-alt"></i></button>
     </div>
   );

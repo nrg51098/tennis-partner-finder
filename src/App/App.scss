@@ -36,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+.findPartnerButton {
+  background-color: green !important;
+  padding:20px;
+  font-size: large;
+  font-weight: 600;
+  text-align: center;  
+}
+
+.custom-card-group {
+ justify-content: center;
+ margin-top: 50px;
+}
+
+.game-card {
+  justify-content: center;
+  margin-top: 50px;
+  color: aqua;
+}
+
+.Court {
+  background-color: beige;
+}
+.customStyle {
+  font-size: 40px;
+  font-weight: bolder;
+}

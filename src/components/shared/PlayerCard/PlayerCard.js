@@ -19,6 +19,7 @@ const PlayerCard = (props) => {
           <p className="card-text">{player.level}</p>
           <p className="card-text">{player.zipcode}</p>
           <p className="card-text">{player.homeCourt}</p>
+          <p className="card-text">{player.dayAvailable}</p>
           <p className="card-text">{player.timeAvailable}</p>
           <div className="btn-group">
             <Link to={singlePlayerLink} className="btn btn-warning"><i className="fas fa-binoculars"></i></Link>
