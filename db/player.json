@@ -5,15 +5,17 @@
     "uid": "O9vxssJ02SbFC9X2yYFU1ozd3lr1",
     "zipcode": "11111",
     "homeCourt": "court1",
-    "timeAvailable": "evening"
+    "timeAvailable": "morning",
+    "dayAvailable": "sunday"
   },
   "player2": {
     "name": "Peter",
     "level": "2",
     "uid": "asdf121212",
-    "zipcode": "22222",
-    "homeCourt": "court2",
-    "timeAvailable": "morning"
+    "zipcode": "11111",
+    "homeCourt": "court1",
+    "timeAvailable": "morning",
+    "dayAvailable": "sunday"
   },
   "player3": {
     "name": "Tom",
@@ -21,7 +23,8 @@
     "uid": "123454232",
     "zipcode": "33333",
     "homeCourt": "court3",
-    "timeAvailable": "afternoon"
+    "timeAvailable": "afternoon",
+    "dayAvailable": "monday"
   },
   "player4": {
     "name": "Jon",
@@ -29,7 +32,8 @@
     "uid": "1234542321212",
     "zipcode": "44444",
     "homeCourt": "court4",
-    "timeAvailable": "afternoon"
+    "timeAvailable": "afternoon",
+    "dayAvailable": "monday"
   },
   "player5": {
     "name": "Eric",
@@ -37,7 +41,8 @@
     "uid": "123454232111",
     "zipcode": "11111",
     "homeCourt": "court5",
-    "timeAvailable": "afternoon"
+    "timeAvailable": "afternoon",
+    "dayAvailable": "monday"
   },
   "player6": {
     "name": "Kyle",
@@ -45,7 +50,8 @@
     "uid": "12345423214343",
     "zipcode": "22222",
     "homeCourt": "court6",
-    "timeAvailable": "afternoon"
+    "timeAvailable": "afternoon",
+    "dayAvailable": "monday"
   },
   "player7": {
     "name": "Dennis",
@@ -53,7 +59,8 @@
     "uid": "12345423234444",
     "zipcode": "33333",
     "homeCourt": "court7",
-    "timeAvailable": "afternoon"
+    "timeAvailable": "afternoon",
+    "dayAvailable": "saturday"
   },
   "player8": {
     "name": "Jason",
@@ -61,6 +68,7 @@
     "uid": "123454232233322",
     "zipcode": "44444",
     "homeCourt": "court8",
-    "timeAvailable": "morning"
+    "timeAvailable": "morning",
+    "dayAvailable": "monday"
   }
 }

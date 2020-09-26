@@ -17,27 +17,38 @@ class NewPlayer extends React.Component {
     zipcode: '',
     homeCourt: '',
     timeAvailable: '',
+    dayAvailable: '',
   };
 
   // do the same thing for everything else!
-  changeTypeEvent = (e) => {
+  changeNameEvent = (e) => {
     e.preventDefault();
     this.setState({ name: e.target.value });
   };
 
-  changeColorEvent = (e) => {
+  changeLevelEvent = (e) => {
     e.preventDefault();
     this.setState({ level: e.target.value });
   }
 
-  changeSizeEvent = (e) => {
+  changeZipcodeEvent = (e) => {
     e.preventDefault();
     this.setState({ zipcode: e.target.value });
   }
 
-  changeAltColor = (e) => {
+  changeHomeCourtEvent = (e) => {
     e.preventDefault();
     this.setState({ homeCourt: e.target.value });
+  }
+
+  changeTimeAvailableEvent = (e) => {
+    e.preventDefault();
+    this.setState({ timeAvailable: e.target.value });
+  }
+
+  changeDayAvailableEvent = (e) => {
+    e.preventDefault();
+    this.setState({ dayAvailable: e.target.value });
   }
 
   changeLocation = (e) => {
@@ -57,6 +68,7 @@ class NewPlayer extends React.Component {
       'zipcode',
       'homeCourt',
       'timeAvailable',
+      'dayAvailable',
     ];
 
     const newPlayer = _.pick(this.state, keysIWant);
@@ -77,6 +89,7 @@ class NewPlayer extends React.Component {
       zipcode,
       homeCourt,
       timeAvailable,
+      dayAvailable,
     } = this.state;
 
     return (
@@ -91,7 +104,7 @@ class NewPlayer extends React.Component {
               id="playerType"
               placeholder="Enter player Name"
               value={name}
-              onChange={this.changeTypeEvent}
+              onChange={this.changeNameEvent}
             />
           </div>
           <div className="form-group">
@@ -102,7 +115,7 @@ class NewPlayer extends React.Component {
               id="playerColor"
               placeholder="Enter player Skill Level"
               value={level}
-              onChange={this.changeColorEvent}
+              onChange={this.changeLevelEvent}
             />
           </div>
           <div className="form-group">
@@ -113,7 +126,7 @@ class NewPlayer extends React.Component {
               id="playerSize"
               placeholder="Enter player zipcode"
               value={zipcode}
-              onChange={this.changeSizeEvent}
+              onChange={this.changeZipcodeEvent}
             />
           </div>
           <div className="form-group">
@@ -124,7 +137,7 @@ class NewPlayer extends React.Component {
               id="playerAltColor"
               placeholder="Enter player HomeCourt"
               value={homeCourt}
-              onChange={this.changeAltColor}
+              onChange={this.changeHomeCourtEvent}
             />
           </div>
           <div className="form-group">
@@ -135,7 +148,18 @@ class NewPlayer extends React.Component {
               id="playerLocation"
               placeholder="Enter player time availability"
               value={timeAvailable}
-              onChange={this.changeLocation}
+              onChange={this.changeTimeAvailableEvent}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="playerLocation">Day Available</label>
+            <input
+              type="text"
+              className="form-control"
+              id="playerLocation"
+              placeholder="Enter player time availability"
+              value={dayAvailable}
+              onChange={this.changeDayAvailableEvent}
             />
           </div>
           <button className="btn btn-warning" onClick={this.savePlayer}>

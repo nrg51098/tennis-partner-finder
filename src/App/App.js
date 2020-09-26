@@ -11,9 +11,12 @@ import 'firebase/auth';
 import Auth from '../components/pages/Auth/Auth';
 import EditPlayer from '../components/pages/EditPlayer/EditPlayer';
 import Home from '../components/pages/Home/Home';
+import Player from '../components/pages/Player/Player';
+import Court from '../components/pages/Court/Court';
 import MyNavbar from '../components/pages/MyNavbar/MyNavbar';
 import NewPlayer from '../components/pages/NewPlayer/NewPlayer';
 import SinglePlayer from '../components/pages/SinglePlayer/SinglePlayer';
+import SingleCourt from '../components/pages/SingleCourt/SingleCourt';
 
 import fbConnection from '../helpers/data/connection';
 
@@ -65,6 +68,9 @@ class App extends React.Component {
             <div className="container">
               <Switch>
                 <PrivateRoute path="/home" component={Home} authed={authed} />
+                <PrivateRoute path="/court" component={Court} authed={authed} />
+                <PrivateRoute path="/courts/:courtId" component={SingleCourt} authed={authed} />
+                <PrivateRoute path="/player" component={Player} authed={authed} />
                 <PrivateRoute path="/new" component={NewPlayer} authed={authed} />
                 <PrivateRoute path="/edit/:playerId" component={EditPlayer} authed={authed} />
                 <PrivateRoute path="/players/:playerId" component={SinglePlayer} authed={authed} />
