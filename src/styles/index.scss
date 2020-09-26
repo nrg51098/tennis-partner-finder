@@ -1,7 +1,28 @@
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+$theme-colors: (
+  "primary": #1D7FE0,
+  "secondary": #848C94,
+  "success": #B1BCC7,
+  "danger": #E05521,
+  "warning": #E0C71A,
+  "info": #47322A,
+  "light": #f8f9fa,
+  "dark": #344140
+);
+
+@import '~bootstrap/scss/bootstrap';
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 @import 'variables';
 
 body {
   background-color: $favColor;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Indie Flower', cursive;
 }
