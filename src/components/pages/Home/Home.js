@@ -13,7 +13,7 @@ class Home extends React.Component {
   }
 
   getPlayers = () => {
-    playersData.getPlayerByUid(authData.getUid())
+    playersData.getAllPlayers()
       .then((players) => this.setState({ players }))
       .catch((err) => console.error('get players broke', err));
   }
@@ -22,17 +22,32 @@ class Home extends React.Component {
     this.getPlayers();
   }
 
+  // check inside the players list if the uid is already present if not add a new uid to the player profile list
+  // then check if the list has all the updated profile if not ask user to update the profile to add the skill level, time availability and home court
+
   findPartner = () => {
     playersData.getAllPlayers()
       .then((players) => (
         playersData.getPlayerByUid(authData.getUid())
           .then((playersWithUid) => {
             const currentPlayer = playersWithUid[0];
-            // eslint-disable-next-line max-len
-            const matchedPlayer = players.find((player) => currentPlayer.name !== player.name && currentPlayer.zipcode === player.zipcode && currentPlayer.timeAvailable.toUpperCase() === player.timeAvailable.toUpperCase() && currentPlayer.dayAvailable.toUpperCase() === player.dayAvailable.toUpperCase());
-            console.warn(currentPlayer.name, matchedPlayer.name);
-            // eslint-disable-next-line no-unused-expressions
-            this.setState({ currentPlayer, matchedPlayer });
+            console.warn(currentPlayer);
+            let matchedPlayer;
+            // eslint-disable-next-line no-unused-vars
+            let message;
+            if (currentPlayer.homeCourt.length !== 0 || currentPlayer.level.length !== 0 || currentPlayer.timeAvailable.length !== 0 || currentPlayer.dayAvailable.length !== 0) {
+              // eslint-disable-next-line max-len
+              matchedPlayer = players.find((player) => currentPlayer.name !== player.name && currentPlayer.zipcode === player.zipcode && currentPlayer.timeAvailable.toUpperCase() === player.timeAvailable.toUpperCase() && currentPlayer.dayAvailable.toUpperCase() === player.dayAvailable.toUpperCase());
+              message = 'Player match Found!!!';
+              if (matchedPlayer === undefined) {
+                message = 'No player match found!!!';
+              }
+              console.warn(currentPlayer.name, matchedPlayer.name);
+              // eslint-disable-next-line no-unused-expressions
+              this.setState({ currentPlayer, matchedPlayer });
+            } else {
+              message = 'Please update your profile!!!';
+            }
           })
           .catch((err) => console.error('get players broke', err))
       ));
