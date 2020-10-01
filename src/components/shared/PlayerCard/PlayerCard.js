@@ -6,10 +6,10 @@ import moment from 'moment';
 import playerShape from '../../../helpers/propz/playerShape';
 
 const PlayerCard = (props) => {
-  const { player, deletePlayer } = props;
+  const { player } = props;
 
   const singlePlayerLink = `/players/${player.id}`;
-  const editLink = `/edit/${player.id}`;
+  // const editLink = `/edit/${player.id}`;
 
   return (
     <div className="col-4 mb-3">
@@ -23,8 +23,8 @@ const PlayerCard = (props) => {
           <p className="card-text">{player.timeAvailable}</p>
           <div className="btn-group">
             <Link to={singlePlayerLink} className="btn btn-warning"><i className="fas fa-binoculars"></i></Link>
-            <Link to={editLink} className="btn btn-success"><i className="fas fa-pencil-alt"></i></Link>
-            <button className="btn btn-danger" onClick={() => { deletePlayer(player.id); }}><i className="fas fa-trash-alt"></i></button>
+            {/* <Link to={editLink} className="btn btn-success"><i className="fas fa-pencil-alt"></i></Link>
+            <button className="btn btn-danger" onClick={() => { deletePlayer(player.id); }}><i className="fas fa-trash-alt"></i></button> */}
           </div>
         </div>
         <div className="card-footer text-muted">

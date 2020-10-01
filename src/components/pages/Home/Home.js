@@ -31,7 +31,7 @@ class Home extends React.Component {
         playersData.getPlayerByUid(authData.getUid())
           .then((playersWithUid) => {
             const currentPlayer = playersWithUid[0];
-            console.warn(currentPlayer);
+            console.warn(currentPlayer, 'printed player in findPartner button event handler');
             let matchedPlayer;
             // eslint-disable-next-line no-unused-vars
             let message;

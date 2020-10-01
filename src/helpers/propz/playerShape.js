@@ -6,7 +6,7 @@ const playerShape = PropTypes.shape({
   uid: PropTypes.string.isRequired,
   zipcode: PropTypes.string.isRequired,
   homeCourt: PropTypes.string.isRequired,
-  timeAvailable: PropTypes.bool.isRequired,
+  timeAvailable: PropTypes.string.isRequired,
 });
 
 export default { playerShape };

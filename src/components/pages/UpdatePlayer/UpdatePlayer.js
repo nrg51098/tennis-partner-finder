@@ -2,6 +2,7 @@ import React from 'react';
 
 import playersData from '../../../helpers/data/playersData';
 import authData from '../../../helpers/data/authData';
+import courtData from '../../../helpers/data/courtData';
 
 class UpdatePlayer extends React.Component {
   state = {
@@ -13,14 +14,22 @@ class UpdatePlayer extends React.Component {
       timeAvailable: '',
       dayAvailable: '',
     },
+    courts: [],
+  }
+
+  getCourts = () => {
+    courtData.getCourts()
+      .then((courts) => this.setState({ courts }))
+      .catch((err) => console.error('get players broke', err));
   }
 
   componentDidMount() {
     playersData.getPlayerByUid(authData.getUid())
       .then((playersWithUid) => {
         const player = playersWithUid[0];
-        console.warn(player);
+        console.warn(player, 'printed player in compDMount');
         this.setState({ player });
+        this.getCourts();
       })
       .catch((err) => console.error('err in get single player', err));
   }
@@ -67,18 +76,14 @@ class UpdatePlayer extends React.Component {
     this.setState({ player });
   }
 
-  updatePlayer = (e) => {
+  updateCurrentPlayer = (e) => {
     e.preventDefault();
-    playersData.getPlayerByUid(authData.getUid())
-      .then((playersWithUid) => {
-        const player = playersWithUid[0];
-        console.warn(player);
-        this.setState({ player });
-        playersData
-          .updatePlayer(player.id, this.state.player)
-          .then(() => {
-            this.props.history.push(`/players/${player.id}`);
-          })})
+    const { player } = this.state;
+    playersData
+      .updatePlayer(player.id, this.state.player)
+      .then(() => {
+        this.props.history.push(`/players/${player.id}`);
+      })
       .catch((err) => console.error('err in get single player', err));
   };
 
@@ -92,9 +97,13 @@ class UpdatePlayer extends React.Component {
       dayAvailable,
     } = this.state.player;
 
+    const { courts } = this.state;
+
+    const courtOptions = courts.map((court) => <option>{court.name}</option>);
+
     return (
       <div className="Editplayer col-12">
-        <h1>Edit player</h1>
+        <h1>Update your profile</h1>
         <form className="col-6 offset-3">
           <div className="form-group">
             <label htmlFor="playerType">Name</label>
@@ -130,16 +139,15 @@ class UpdatePlayer extends React.Component {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="playerAltColor">Home Court</label>
-            <input
-              type="text"
-              className="form-control"
-              id="playerAltColor"
-              placeholder="Enter player home court"
-              value={homeCourt}
-              onChange={this.changeHomeCourtEvent}
-            />
-          </div>
+            <label htmlFor="playerHomeCourt">Home Court</label>
+                <select
+                  className="form-control"
+                  value={homeCourt}
+                  id="playerHomeCourt"
+                  onChange={this.changeHomeCourtEvent}>
+                    { courtOptions }
+                </select>
+            </div>
           <div className="form-group">
             <label htmlFor="playerLocation">Time Available</label>
             <input
@@ -162,7 +170,7 @@ class UpdatePlayer extends React.Component {
               onChange={this.changeDayAvailableEvent}
             />
           </div>
-          <button className="btn btn-info" onClick={this.updatePlayer}>
+          <button className="btn btn-info" onClick={this.updateCurrentPlayer}>
             Update player
           </button>
         </form>
