@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import playersData from '../../../helpers/data/playersData';
+import authData from '../../../helpers/data/authData';
 
 const SinglePlayer = (props) => {
   const [player, setPlayer] = useState({});
@@ -28,7 +29,8 @@ const SinglePlayer = (props) => {
       <p>Player Home Court is: {player.homeCourt}</p>
       <p>Player is available on Day: {player.dayAvailable}</p>
       <p>at Time: {player.timeAvailable}</p>
-      <button className="btn btn-danger col-12" onClick={deletePlayer}><i className="fas fa-trash-alt"></i></button>
+      { (player.uid === authData.getUid()) ? <button className="btn btn-danger col-12" onClick={deletePlayer}><i className="fas fa-trash-alt"></i></button> : '' }
+
     </div>
   );
 };
